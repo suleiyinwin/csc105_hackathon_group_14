@@ -9,34 +9,38 @@ import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
 import GlobalContext from "../context/globalContext";
 import Cookies from 'js-cookie';
+import Axios from "./AxiosInstance";
 const drawerWidth=300;
 
 export default function Nav(props){
-  useEffect(() => {
-    // TODO: Implement get user
-    const userToken = Cookies.get('UserToken');
-    // console.log(userToken);
-    if (userToken == null || userToken == "undefined") return;
-    // 1. check if cookie is set
-    // 2. send a request to server
-    Axios.get("/me", {
-      headers: {
-        Authorization: `Bearer ${userToken}`,
-      },
-    }).then((res) => {
-      console.log(res.data);
-      // 3. if success, set user information
-      setUser({
-        username: res.data.user.username,
-        email: res.data.user.email,
-      });
-    });
-  }, []);
+  const {user, setUser} = useContext(GlobalContext);
+  
   console.log(user);
 
     const { window } = props;
     const [mobileOpen, setMobileOpen] = React.useState(false);
-    const {user, setUser} = useContext(GlobalContext);
+    useEffect(() => {
+      // TODO: Implement get user
+      const userToken = Cookies.get('UserToken');
+      // console.log(userToken);
+      if (userToken == null || userToken == "undefined") return;
+      // 1. check if cookie is set
+      // 2. send a request to server
+      Axios.get("/me", {
+        headers: {
+          Authorization: `Bearer ${userToken}`,
+        },
+      }).then((res) => {
+        console.log(res.data.user.username);
+        // 3. if success, set user information
+        setUser({
+          username: res.data.user.username,
+          email: res.data.user.email,
+        });
+      });
+    }, []);
+    console.log(user);
+
     const handleDrawerToggle = () => {
         setMobileOpen(!mobileOpen);
       };

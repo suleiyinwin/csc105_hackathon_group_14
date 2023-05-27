@@ -8,6 +8,7 @@ import {IconButton} from "@mui/material";
 import React, { useContext, useState } from "react";
 import GlobalContext from "../context/globalContext";
 import { useNavigate } from "react-router";
+import { AxiosError } from "axios";
 // import {AxiosError} from 'axios';
 
 const Login = ({
@@ -81,6 +82,7 @@ const Login = ({
       if (response.data.success) {
         setusernameLogin('');
         setPassword('');
+        console.log(response.data.user.username);
         setUser({
           username:response.data.user.username,
           email:response.data.user.email,
@@ -90,6 +92,7 @@ const Login = ({
           severity:'success'
         });
         handleClose();
+        // console.log(user);
         navigate('/dashboard');
       }
     }

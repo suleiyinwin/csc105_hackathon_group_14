@@ -29,6 +29,26 @@ app.get("/",(req,res)=>{
 });
 app.post("/register", require('./register'));
 app.post("/login", require("./login"));
+// app.use((req, res, next) => {
+//   try {
+//     const authHeader = req.headers.authorization;
+//     const token = authHeader && authHeader.split(' ')[1];
+
+//     if (token == null) throw new ErrorResponse('no credential found', 401);
+
+//     const verify = verifyAccessToken(token);
+
+//     if (verify.err) throw new ErrorResponse('access denied', 403);
+
+//     res.locals.userId = verify.id;
+//     next();
+//   } catch (error) {
+//     if (error instanceof ErrorResponse) {
+//       return res.status(error.statusCode).json(error);
+//     }
+//     return res.json(error);
+//   }
+// });
 app.get("/me",require("./getUserById"));
 app.post('/post', require('./createPost'));
 app.patch('/post',require("./editPost"));
