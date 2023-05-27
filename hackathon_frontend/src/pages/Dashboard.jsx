@@ -5,10 +5,10 @@ import Mood from '../components/Mood'
 function Dashboard() {
   return (
     <Grid container component='main' sx={{height:'100vh'}}>
-    <Grid item xs={2} display={{ sm:"block" }}>
+    <Grid item xs={4} display={{ sm:"block" }}>
        <Nav/>
     </Grid>
-    <Grid item xs={10} display={{ xs: "block" }}>
+    <Grid item xs={8} display={{ xs: "block" }}>
     <Mood/>
     </Grid>
    </Grid> 

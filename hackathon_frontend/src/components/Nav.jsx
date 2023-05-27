@@ -34,7 +34,7 @@ export default function Nav(props){
         navigate('/login');
     }
     const drawer=(
-        <div>
+        <div >
              <Typography sx={{
             fontFamily:"Robotos",
             fontWeight: 300,
