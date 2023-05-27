@@ -17,14 +17,20 @@ function Entry() {
         position: "sticky",
         zIndex: 10,
         // marginBottom: "8px",
+<<<<<<< Updated upstream
         padding: "11px 5%",
         backgroundColor: "#023047",
         borderBottom: 1, borderColor: "#FB8500"
+=======
+        padding: "10px 2%",
+        backgroundColor: "#4059AD",
+        borderBottom: 1
+>>>>>>> Stashed changes
       }}
 
     >
       <Box sx={{ flexGrow: 1 }}>
-        <img src="./assets/spout.svg" />
+        <img src="./assets/spout.svg" style={{width:'10%'}} />
       </Box>
       
       {/* {user ? (
@@ -51,7 +57,7 @@ function Entry() {
           color:'#000000',
           padding: '6px 18px',
           borderRadius: 12,
-          border: '1px solid #ffffff',
+          border: '1px solid ',
           cursor: 'pointer',
           "&:hover": {
               //you want this to be the same as the backgroundColor above
@@ -67,7 +73,7 @@ function Entry() {
     </Stack>
       <Grid container>
           <Grid item md={7} sm={12} xs={12}>
-            <Typography variant="h3">Change this text!!</Typography>
+            <Typography variant="h3" sx={{fontFamily:'Roboto'}}>Welcome Back!</Typography>
             <br />
             <Typography variant="h6">
               I stay up through the night; because that is when the moon and I have our conversations.<br/>

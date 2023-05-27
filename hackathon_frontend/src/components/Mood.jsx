@@ -22,9 +22,31 @@ function Mood() {
       };
     
      
+<<<<<<< Updated upstream
       
       const handleIconClick=(icon,image)=>{
         changeBackground(image);
+=======
+      const getBackgroundImage=()=>{
+        switch (selectedIcon){
+            case 'Sad':
+                return `url(${sadImage})`;
+            case 'Very Sad':
+                return `url(${verySadImage})`;
+            case 'Neutral':
+                return `url(${neutralImage})`;
+            case 'Happy':
+                return `url(${happyImage})`;
+            case 'Very Happy':
+                return `url(${veryHappyImage})`;
+            default:
+                return 'none';
+        }
+      }
+      const handleIconClick=(icon)=>{
+
+
+>>>>>>> Stashed changes
         setSelectedIcon(icon);
         setShowIcons(false);
         
