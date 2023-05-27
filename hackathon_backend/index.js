@@ -38,6 +38,7 @@ app.get('/publicPosts',require("./getAllPosts"));
 app.post('/comment',require("./createComment"));
 app.patch('/comment',require('./editComment'));
 app.delete('/comment',require("./deleteComment"));
+app.get('/commentsOfPost',require('./getAllComments'));
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
 });
