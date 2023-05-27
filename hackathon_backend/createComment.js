@@ -4,10 +4,9 @@ var jwt = require("jsonwebtoken");
 module.exports=(req,res)=>{
     const token = req.cookies.UserToken;
 	var decoded = jwt.verify(token, "ZJGX1QL7ri6BGJWj3t");
-    const title=req.body.title;
-    const description=req.body.description;
-    const visibility=req.body.visibility;
-    connection.query("Insert into posts (userId,title,description,visibility) values (?,?,?,?)",[decoded.user.id,title,description,visibility],(err,rows)=>{
+    const comment=req.body.commentText;
+    const postId=req.body.postId;
+    connection.query("Insert into comments (userId,commentText,postId) values (?,?,?)",[decoded.user.id,comment,postId],(err,rows)=>{
         if(err) {
             return res.json({
                 success: false,
@@ -16,16 +15,15 @@ module.exports=(req,res)=>{
             });
         }
         else{
-            const newPost = {
-                title:title,
-                description:description,
-                visibility:visibility,
+            const newComment = {
+                commentText:comment,
+                postId:postId,
                 userId:decoded.user.id,
             }
                 res.json({
                     success: true,
-                    data: newPost,
-                    message: "Post created",
+                    data: newComment,
+                    message: "Comment created",
                 });
         }
     })
