@@ -20,7 +20,7 @@ module.exports=(req,res)=>{
         if(numRows==0){
             res.json({
 				success: false,
-				message: "Username or email is wrong.",
+				message: "Username is wrong.",
 			});
         }
         else{
