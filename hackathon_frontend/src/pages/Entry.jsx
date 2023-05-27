@@ -68,7 +68,7 @@ function Entry() {
     //       </Grid>
     //     </Grid>
     // </Box>
-    <Box>
+    <Box style={{background:"#4059ad"}}>
       <Stack
       direction="row"
       alignItems="center"
@@ -89,7 +89,7 @@ function Entry() {
 
     >
       <Box sx={{ flexGrow: 1 }}>
-        <img src="./assets/spout.svg" style={{width:'10%'}} />
+        <img src="./assets/spout.svg" style={{width:'100px'}} />
       </Box>
         <Box sx={{
           backgroundColor: '#ffffff',
@@ -103,22 +103,32 @@ function Entry() {
               backgroundColor: "#ffffff",
             },
         }}>
-          <Button  onClick={handleOpen} >
+          <Box sx={{
+          backgroundColor: '#ffffff',
+          color:'#000000',
+          padding: '6px 18px',
+          borderRadius: 12,
+          border: '1px solid #ffffff',
+          cursor: 'pointer',
+          "&:hover": {
+              //you want this to be the same as the backgroundColor above
+              backgroundColor: "#ffffff",
+            },
+        }}  onClick={handleOpen} >
             Login
-          </Button>
+          </Box>
           <Login handleOpen={handleOpen} open={openLoginModal} setOpen={setOpenLoginModal}/>
         </Box>  
     </Stack>
       <Box style={{background:"#4059ad",padding: "2% 15% 0 15%"}}>
           <Grid container >
-            <Grid item xs={12} sx={{height:"800px"}}>
+            <Grid item xs={12} >
               <Box sx={{height:"50px", background:"#1D337D"}}>
                 <Typography sx={{textAlign:"center",color:"#C0CFFF",padding:'12px'}}>
                   CHERISH THE MOMENT OF HAPPINESS
-                </Typography>
+                </Typography></Box>
                 <img src='../assets/fo.png' style={{width:"60%",margin:"5% 0 0 20%"}}/>
-                <img src='../assets/entry.png' style={{width:"50%",margin:"5% 0 0 25%"}}/>
-              </Box>
+                <img src='../assets/entry.png' style={{width:"50%",margin:"5% 0 5% 25%"}}/>
             </Grid>
           </Grid>
       </Box>

@@ -13,7 +13,7 @@ module.exports = (req, res) => {
     // console.log(today);
     const token = req.cookies.UserToken;
 	var decoded = jwt.verify(token, "ZJGX1QL7ri6BGJWj3t");
-    connection.query("SELECT emotions FROM emotions WHERE userId =? AND createdAt=?",[decoded.user.id,today], ( err, rows) => {
+    connection.query("SELECT * FROM emotions WHERE userId =? AND createdAt=?",[decoded.user.id,today], ( err, rows) => {
         if (err) {
             return res.json({
                 success: false,
