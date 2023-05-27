@@ -1,8 +1,10 @@
 import { Box, Toolbar, Grid, Typography, Stack, Button } from '@mui/material'
-import React,{ useState } from 'react';
+import React,{ useContext, useState } from 'react';
 import Login from '../components/Login';
+import GlobalContext from '../context/globalContext';
 
 function Entry() {
+  const {user, setUser} = useContext(GlobalContext);
   const [openLoginModal, setOpenLoginModal] = useState(false);
   const handleOpen = () => setOpenLoginModal(true);
 
@@ -33,9 +35,7 @@ function Entry() {
         <img src="./assets/spout.svg" style={{width:'10%'}} />
       </Box>
       
-      {/* {user ? (
-        <Box sx={{ display: 'flex'}}>
-          <Typography sx={{color:'#ffffff', padding: '6px 25px',fontSize:'18px'}}>{user.username}</Typography>
+      {user ? (
           <Box sx={{
           backgroundColor: '#ffffff',
           color:'#000000',
@@ -50,8 +50,7 @@ function Entry() {
         }}>
           <CustomButton text="Log out"  handle={logout} />
           </Box>
-        </Box>
-      ) : ( */}
+      ) : (
         <Box sx={{
           backgroundColor: '#ffffff',
           color:'#000000',
@@ -69,7 +68,7 @@ function Entry() {
           </Button>
           <Login handleOpen={handleOpen} open={openLoginModal} setOpen={setOpenLoginModal}/>
         </Box>  
-      {/* )} */}
+      )}
     </Stack>
       <Grid container>
           <Grid item md={7} sm={12} xs={12}>
