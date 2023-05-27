@@ -39,6 +39,7 @@ app.post('/comment',require("./createComment"));
 app.patch('/comment',require('./editComment'));
 app.delete('/comment',require("./deleteComment"));
 app.get('/commentsOfPost',require('./getAllComments'));
+app.post('/emotion',require('./createEmotion'));
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
 });
