@@ -31,6 +31,7 @@ app.post("/register", require('./register'));
 app.post("/login", require("./login"));
 app.get("/me",require("./getUserById"));
 app.post('/post', require('./createPost'));
+app.patch('/post',require("./editPost"));
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
 });
