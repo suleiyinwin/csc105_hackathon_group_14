@@ -10,6 +10,20 @@ import Axios from '../components/AxiosInstance'
 import { useEffect, useState, useContext} from 'react';
 
 function Dashboard() {
+const [posts, setPosts] = useState([]);
+const {user} = useContext(GlobalContext);
+
+useEffect(()=>{
+    const userToken = Cookies.get('UserToken');
+    if(userToken !== undefined && userToken !== 'undefined') {
+        Axios.get('/postsByUser', { headers: { Authorization: `Bearer ${userToken}`}})
+        .then((res)=>{
+            setPosts(res.data.data);
+        });
+    }
+},[user]);
+
+
   return (
     <Grid container>
     <Grid item xs={2.5} display={{ sm:"block" }}>
@@ -20,10 +34,17 @@ function Dashboard() {
             <Mood/>
         </Box>
           <Grid container >
-            <Grid item xs={12}>
-              {/* map notecard */}
-              <Postcard />
-            </Grid>
+            {posts.map((post,index) => (
+                <Grid item xs={12} key={index}>
+                {/* map notecard */}
+                <Postcard 
+                title={post.title} 
+                description={post.description} 
+                date={post.updatedAt}
+                />
+              </Grid>
+            ))}
+            
           </Grid>
     </Grid>
    </Grid> 
