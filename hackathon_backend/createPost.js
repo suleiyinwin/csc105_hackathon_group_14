@@ -1,6 +1,32 @@
 const mysql=require('mysql2');
+var jwt = require("jsonwebtoken");
+
 module.exports=(req,res)=>{
-    const { userId } = res.locals;
+    const token = req.cookies.UserToken;
+	var decoded = jwt.verify(token, "ZJGX1QL7ri6BGJWj3t");
     const title=req.body.title;
     const description=req.body.description;
+    const visibility=req.body.visibility;
+    connection.query("Insert into posts (userId,title,description,visibility) values (?,?,?,?)",[decoded.user.id,title,description,visibility],(err,rows)=>{
+        if(err) {
+            return res.json({
+                success: false,
+                data: null,
+                error: err.message,
+            });
+        }
+        else{
+            const newPost = {
+                title:title,
+                description:description,
+                visibility:visibility,
+                user_id:decoded.user.id,
+            }
+                res.json({
+                    success: true,
+                    data: newPost,
+                    message: "Item created",
+                });
+        }
+    })
 }

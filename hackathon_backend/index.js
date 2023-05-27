@@ -17,6 +17,7 @@ connection.connect();
 const port=8000;
 const app=express();
 app.use(express.json());
+
 app.use(bodyParser.json({type:"application/json"}));
 app.use(cors({
     origin: ['http://localhost:5173', 'http://localhost:5174'],
@@ -29,6 +30,7 @@ app.get("/",(req,res)=>{
 app.post("/register", require('./register'));
 app.post("/login", require("./login"));
 app.get("/me",require("./getUserById"));
+app.post('/post', require('./createPost'));
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
 });
