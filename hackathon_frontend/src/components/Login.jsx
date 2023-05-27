@@ -5,7 +5,8 @@ import FormControlLabel from "@mui/material/FormControlLabel";
 import Axios from "./AxiosInstance";
 import Checkbox from "@mui/material/Checkbox";
 import {IconButton} from "@mui/material";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
+import GlobalContext from "../context/globalContext";
 // import {AxiosError} from 'axios';
 
 const Login = ({
@@ -13,12 +14,12 @@ const Login = ({
     open=false,
     setOpen=()=>{},
     setStatus = () => {},
-    setUser = () => {},
 }) => {
-    const [isLogin, setIsLogin] = useState(true);
-    const handleClose = () => {
-        setSignUpOpen(false);
-        setOpen(false)};
+  const {user, setUser} = useContext(GlobalContext);
+  const [isLogin, setIsLogin] = useState(true);
+  const handleClose = () => {
+      setSignUpOpen(false);
+      setOpen(false)};
   const signButton = {
     backgroundColor: "#4059ad",
     "&:hover": {

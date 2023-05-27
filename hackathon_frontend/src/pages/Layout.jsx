@@ -1,10 +1,27 @@
-import React from "react";
+import { Box } from "@mui/material";
+import React, { useMemo, useState } from "react";
 import { Outlet } from "react-router";
+import GlobalContext from "../context/globalContext";
+
 export default function Layout(){
+    const [user, setUser] = useState();
+    const [status, setStatus] = useState("");
+
+    const globalContextValue = useMemo(()=>{
+        return {
+          user,
+          status,
+          setUser,
+          setStatus,  
+        };
+    },[user]);
+
     return(
-        <div>
-       <Outlet/>
-        </div>
+        <GlobalContext.Provider value={globalContextValue}>
+            <Box>
+                <Outlet/>
+            </Box> 
+        </GlobalContext.Provider>    
     )
    
 }
