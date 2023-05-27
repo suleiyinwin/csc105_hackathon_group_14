@@ -9,7 +9,7 @@ module.exports = (req, res) => {
         } else {
             res.json({
                 success: true,
-                items: rows,
+                data: rows,
                 message: 'All public posts are fetched.',
             });
         }

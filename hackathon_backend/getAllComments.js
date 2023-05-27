@@ -11,7 +11,7 @@ module.exports = (req, res) => {
         } else {
             res.json({
                 success: true,
-                items: rows,
+                data: rows,
                 message: 'All comments related to a post are fetched.',
             });
         }

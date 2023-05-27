@@ -40,6 +40,7 @@ app.patch('/comment',require('./editComment'));
 app.delete('/comment',require("./deleteComment"));
 app.get('/commentsOfPost',require('./getAllComments'));
 app.post('/emotion',require('./createEmotion'));
+app.get('/todaymood',require('./getTodayEmotion'));
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
 });
