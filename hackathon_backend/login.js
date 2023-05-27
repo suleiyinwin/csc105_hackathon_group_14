@@ -38,7 +38,7 @@ module.exports=(req,res)=>{
                 res.json({
                 success: true,
                 message: "Login credential is correct",
-                user: rows[0].id,
+                user: rows[0],
             });
             // return response.cookie('UserToken', token).json(res);
             }
