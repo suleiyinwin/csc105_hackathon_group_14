@@ -34,23 +34,6 @@ function Entry() {
       <Box sx={{ flexGrow: 1 }}>
         <img src="./assets/spout.svg" style={{width:'10%'}} />
       </Box>
-      
-      {user ? (
-          <Box sx={{
-          backgroundColor: '#ffffff',
-          color:'#000000',
-          padding: '6px 18px',
-          borderRadius: 12,
-          border: '1px solid #ffffff',
-          cursor: 'pointer',
-          "&:hover": {
-              //you want this to be the same as the backgroundColor above
-              backgroundColor: "#ffffff",
-            },
-        }}>
-          <CustomButton text="Log out"  handle={logout} />
-          </Box>
-      ) : (
         <Box sx={{
           backgroundColor: '#ffffff',
           color:'#000000',
@@ -68,7 +51,6 @@ function Entry() {
           </Button>
           <Login handleOpen={handleOpen} open={openLoginModal} setOpen={setOpenLoginModal}/>
         </Box>  
-      )}
     </Stack>
       <Grid container>
           <Grid item md={7} sm={12} xs={12}>
