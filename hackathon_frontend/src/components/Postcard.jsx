@@ -21,6 +21,7 @@ function Postcard() {
               <Box sx={{
                 display:'flex',
                 justifyContent:'center',
+               
               }}>
                 <Card sx={{width:'80%'}}>
                   <CardActionArea>

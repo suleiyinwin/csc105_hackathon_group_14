@@ -17,7 +17,7 @@ function Entry() {
         position: "sticky",
         zIndex: 10,
         // marginBottom: "8px",
-        padding: "16px 5%",
+        padding: "11px 5%",
         backgroundColor: "#023047",
         borderBottom: 1, borderColor: "#FB8500"
       }}

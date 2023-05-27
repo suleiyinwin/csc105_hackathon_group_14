@@ -12,7 +12,7 @@ function Newsfeed() {
           <Nav />
         </Grid>
         <Grid item xs={9} display={{ xs: "block" }}>
-        <Box sx={{ height:'40%', mb: 2, }}>
+        <Box sx={{ height:'100%', mb: 2, }}>
             <Mood/>
         </Box>
           <Grid container >

@@ -6,10 +6,10 @@ import Postcard from '../components/Postcard'
 function Dashboard() {
   return (
     <Grid container>
-    <Grid item xs={3} display={{ sm:"block" }}>
+    <Grid item xs={2.5} display={{ sm:"block" }}>
        <Nav/>
     </Grid>
-    <Grid item xs={9} display={{ xs: "block" }}>
+    <Grid item xs={8.5} display={{ xs: "block" }}>
     <Box sx={{ height:'40%', mb: 2, }}>
             <Mood/>
         </Box>

@@ -6,11 +6,7 @@ import SentimentDissatisfiedOutlinedIcon from '@mui/icons-material/SentimentDiss
 import SentimentSatisfiedOutlinedIcon from '@mui/icons-material/SentimentSatisfiedOutlined';
 import MoodOutlinedIcon from '@mui/icons-material/MoodOutlined';
 import SentimentVerySatisfiedOutlinedIcon from '@mui/icons-material/SentimentVerySatisfiedOutlined';
-import sadImage from '../../src/assets/Sad.jpg'
-// import verySadImage from '../src/assets/verysad.jpg';
-// import neutralImage from 'src/assets/Neutral.jpg';
-// import happyImage from 'src/assets/Happy.jpg';
-// import veryHappyImage from 'src/assets/veryhappy.jpg';
+
 const drawerWidth=300;
 function Mood() {
     const styleForPaper = {
@@ -20,26 +16,15 @@ function Mood() {
       };
       const [selectedIcon, setSelectedIcon]=useState(null);
       const [showIcons, setShowIcons] = useState(true);
+      const [backgroundImage, setBackgroundImage] = useState('');
+      const changeBackground = (image) => {
+        setBackgroundImage(image);
+      };
+    
      
-      const getBackgroundImage=()=>{
-        switch (selectedIcon){
-            case 'Sad':
-                return `url(${sadImage})`;
-            case 'Very Sad':
-                return `url(${verySadImage})`;
-            case 'Neutral':
-                return `url(${neutralImage})`;
-            case 'Happy':
-                return `url(${happyImage})`;
-            case 'Very Happy':
-                return `url(${veryHappyImage})`;
-            default:
-                return 'none';
-        }
-      }
-      const handleIconClick=(icon)=>{
-        getBackgroundImage();
-
+      
+      const handleIconClick=(icon,image)=>{
+        changeBackground(image);
         setSelectedIcon(icon);
         setShowIcons(false);
         
@@ -47,14 +32,14 @@ function Mood() {
   return (
     <Box
         component="main"
-        sx={{ flexGrow: 1, p: 3, width: { sm: `calc(100% - ${drawerWidth}px)` },
-            margin:'0 auto'
+        sx={{ flexGrow: 1, p: 3, width: { sm: `calc(103% - ${drawerWidth}px)` },
+            margin:'0 auto', backgroundImage: `url(${backgroundImage})`,
+            height: '90%',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            marginTop:0
             }}
       >
-    {/* <Grid container >
-        <Grid item xs={5} sm={7} md={12} style={{display:'flex',
-                                                alignItems:'center',
-                                                flexDirection:'column'}}> */}
            
                 {showIcons ? (
                 <>
@@ -67,35 +52,35 @@ function Mood() {
                 <ul style={{ alignItems: 'center', padding: 0, margin: 0 }}>
                 <IconButton
                 style={styleForPaper}
-                onClick={() => handleIconClick('bad')}
+                onClick={() => handleIconClick('Sad','../assets/1.jpg')}
                 >
                 <MoodBadOutlinedIcon />
                 <ListItemText primary="Sad" />
                 </IconButton>
                 <IconButton
                 style={styleForPaper}
-                onClick={() => handleIconClick('notGood')}
+                onClick={() => handleIconClick('Very Sad','../assets/2.jpg')}
                 >
                 <SentimentDissatisfiedOutlinedIcon />
                 <ListItemText primary="Very Sad" />
                 </IconButton>
                 <IconButton
                 style={styleForPaper}
-                onClick={() => handleIconClick('neutral')}
+                onClick={() => handleIconClick('Neutral','../assets/3.jpg')}
                  >
                 <SentimentSatisfiedOutlinedIcon />
                 <ListItemText primary="Neutral" />
                 </IconButton>
                 <IconButton
                 style={styleForPaper}
-                onClick={() => handleIconClick('good')}
+                onClick={() => handleIconClick('Happy','../assets/4.jpg')}
                  >
                 <MoodOutlinedIcon />
                 <ListItemText primary="Happy" />
                 </IconButton>
                 <IconButton
                 style={styleForPaper}
-                onClick={() => handleIconClick('great')}
+                onClick={() => handleIconClick('Very Happy','../assets/5.jpg')}
                 >
                 <SentimentVerySatisfiedOutlinedIcon />
                 <ListItemText primary="Very Happy" />
@@ -105,12 +90,12 @@ function Mood() {
           </>
           
         ) : (
-          <Typography variant="h4" sx={{ fontFamily: 'Roboto', fontSize: '2rem', color: 'black' }}>
+            
+          <Typography variant="h4" sx={{ fontFamily: 'Roboto', fontSize: '1.5rem', color: 'black' }}>
             Some other words
           </Typography>
+          
         )}
-        {/* </Grid>
-        </Grid> */}
         </Box>
   )
 }
