@@ -20,10 +20,10 @@ const Login = ({
         setSignUpOpen(false);
         setOpen(false)};
   const signButton = {
-    backgroundColor: "#023047",
+    backgroundColor: "#4059ad",
     "&:hover": {
       //you want this to be the same as the backgroundColor above
-      backgroundColor: "#023047",
+      backgroundColor: "#4059ad",
     },
     width: { md: "60%", xs: "80%" },
     textTransform: "none",
@@ -75,7 +75,7 @@ const Login = ({
       });
       if (response.data.success) {
         setusernameLogin('');
-        setPassword(' ');
+        setPassword('');
         setUser({
           username:response.data.username,
           email:response.data.email,
