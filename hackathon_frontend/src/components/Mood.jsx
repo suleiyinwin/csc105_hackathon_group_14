@@ -48,7 +48,7 @@ function Mood() {
     <Box
         component="main"
         sx={{ flexGrow: 1, p: 3, width: { sm: `calc(100% - ${drawerWidth}px)` },
-            justifyContent:'center', border: '1px solid red', margin:'0 auto'
+            margin:'0 auto'
             }}
       >
     {/* <Grid container >

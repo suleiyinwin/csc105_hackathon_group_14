@@ -5,7 +5,7 @@ import CommentRoundedIcon from '@mui/icons-material/CommentRounded';
 import React, { useState } from 'react';
 import CommentModal from './CommentModal';
 
-function Notecard() {
+function Postcard() {
     const[expanded, setExpanded] = useState(false);
     const[commentOpen, setCommentOpen] = useState(false);
     
@@ -21,9 +21,8 @@ function Notecard() {
               <Box sx={{
                 display:'flex',
                 justifyContent:'center',
-               
               }}>
-                <Card sx={{width:'70%'}}>
+                <Card sx={{width:'80%'}}>
                   <CardActionArea>
                     <CardHeader
                       avatar={
@@ -66,4 +65,4 @@ function Notecard() {
     
   
 
-export default Notecard
+export default Postcard
