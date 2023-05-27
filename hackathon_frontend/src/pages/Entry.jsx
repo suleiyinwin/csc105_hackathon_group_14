@@ -58,7 +58,7 @@ function Entry() {
               backgroundColor: "#ffffff",
             },
         }}>
-          <Button onClick={handleOpen} >
+          <Button  onClick={handleOpen} >
             Login
           </Button>
           <Login handleOpen={handleOpen} open={openLoginModal} setOpen={setOpenLoginModal}/>

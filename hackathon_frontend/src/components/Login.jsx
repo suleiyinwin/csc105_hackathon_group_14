@@ -25,6 +25,7 @@ const Login = ({
       //you want this to be the same as the backgroundColor above
       backgroundColor: "#4059ad",
     },
+    color:"#ffffff",
     width: { md: "60%", xs: "80%" },
     textTransform: "none",
     padding: "10px 0",
@@ -279,7 +280,7 @@ const Login = ({
         </Box>
         <br />
         <br />
-        <Button onClick={handleSubmit} sx={signButton}>
+        <Button  onClick={handleSubmit} sx={signButton}>
           Login
         </Button>
         <br />
