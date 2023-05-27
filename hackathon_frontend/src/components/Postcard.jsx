@@ -21,10 +21,11 @@ function Postcard() {
               <Box sx={{
                 display:'flex',
                 justifyContent:'center',
-               
+                
               }}>
-                <Card sx={{width:'80%'}}>
-                  <CardActionArea>
+                <Card sx={{width:'80%',
+                        fontFamily:'Roboto'}}>
+                  <CardActionArea sx={{bgcolor:'#F5F5F5'}} >
                     <CardHeader
                       avatar={
                         <Avatar aria-label="user_avatar">
@@ -46,14 +47,15 @@ function Postcard() {
                     </CardContent>
                   </CardActionArea>
                   <CardActions disableSpacing sx={{ display: 'flex' }}>
-                    <IconButton aria-label="edit note">
+                    <IconButton aria-label="edit note" sx={{color:'#4059AD'}}>
                       <ModeEditRoundedIcon />
                     </IconButton>
-                    <IconButton aria-label="delete note">
+                    <IconButton aria-label="delete note" sx={{color:'#4059AD'}}>
                       <DeleteRoundedIcon />
                     </IconButton>
                     <Box sx={{ flexGrow: 1 }}></Box>
-                    <Button variant="outlined" startIcon={<CommentRoundedIcon />} onClick={commentToggle}>
+                    <Button variant="outlined" startIcon={<CommentRoundedIcon />} onClick={commentToggle} sx={{fontFamily:'Roboto',
+                        color:'#4059AD'}}>
                       Comment
                     </Button>
                     <CommentModal open={commentOpen} onClose={commentToggle} />

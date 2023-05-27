@@ -29,13 +29,17 @@ function CommentModal({ open = commentOpen, onClose = commentToggle }) {
           }}
         >
           <TextField
+          
             value={textField}
             onChange={(e) => setTextField(e.target.value)}
             fullWidth
             placeholder="Type your comment"
             variant="standard"
           />
-          <Button onClick={handleAddComment}>Submit</Button>
+          <Button onClick={handleAddComment} sx={{fontFamily:'Roboto',
+                                                  color:'#4059AD'}}>
+                                                    Submit
+                                                    </Button>
         </Box>
         <Box sx={{ overflowY: 'scroll', maxHeight: 'calc(400px - 2rem)' }}>
           {/* {comments.map((comment) => (
