@@ -24,7 +24,7 @@ function Entry() {
         borderBottom: 1, borderColor: "#FB8500",
         padding: "10px 2%",
         backgroundColor: "#4059AD",
-        borderBottom: 1
+        // borderBottom: 1
 
       }}
 
