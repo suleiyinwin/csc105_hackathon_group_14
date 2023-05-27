@@ -16,9 +16,7 @@ module.exports=(req,res)=>{
         } else {
             res.json({
                 success: true,
-                userId: rows[0].id,
-                username:rows[0].username,
-                email:rows[0].email,
+                user: rows[0],
                 error: null,
             });
         }

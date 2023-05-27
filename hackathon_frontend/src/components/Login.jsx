@@ -7,6 +7,8 @@ import Checkbox from "@mui/material/Checkbox";
 import {IconButton} from "@mui/material";
 import React, { useContext, useState } from "react";
 import GlobalContext from "../context/globalContext";
+import { useNavigate } from "react-router";
+import { AxiosError } from "axios";
 // import {AxiosError} from 'axios';
 
 const Login = ({
@@ -44,10 +46,12 @@ const Login = ({
     fontFamily: "Roboto",
     fontSize: { xs: "20px", md: "30px" },
   };
+  const navigate =  useNavigate();
   const [usernameLogin, setusernameLogin] = useState("");
   const [usernameLoginError, setusernameLoginError] = useState("");
   const [password, setPassword] = useState("");
   const [passwordError, setPasswordError] = useState("");
+
   const validateForm = () => {
     let isValid = true;
     if (!usernameLogin) {
@@ -78,15 +82,18 @@ const Login = ({
       if (response.data.success) {
         setusernameLogin('');
         setPassword('');
+        console.log(response.data.user.username);
         setUser({
-          username:response.data.username,
-          email:response.data.email,
+          username:response.data.user.username,
+          email:response.data.user.email,
       });
         setStatus({
           msg:response.data.msg,
           severity:'success'
         });
         handleClose();
+        // console.log(user);
+        navigate('/dashboard');
       }
     }
     catch(e){
