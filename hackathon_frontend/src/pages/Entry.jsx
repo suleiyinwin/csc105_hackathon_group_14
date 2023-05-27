@@ -19,15 +19,13 @@ function Entry() {
         position: "sticky",
         zIndex: 10,
         // marginBottom: "8px",
-<<<<<<< Updated upstream
         padding: "11px 5%",
         backgroundColor: "#023047",
-        borderBottom: 1, borderColor: "#FB8500"
-=======
+        borderBottom: 1, borderColor: "#FB8500",
         padding: "10px 2%",
         backgroundColor: "#4059AD",
         borderBottom: 1
->>>>>>> Stashed changes
+
       }}
 
     >
