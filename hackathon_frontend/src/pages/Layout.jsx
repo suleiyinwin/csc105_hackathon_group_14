@@ -22,7 +22,25 @@ export default function Layout(){
 
     return(
         <GlobalContext.Provider value={globalContextValue}>
-            <Box>
+            <Box sx={{
+          minHeight: '100vh',
+          background: 'linear-gradient(45deg,#97D8C4, #A0C4FF, #CAFFBF, #FDFFB6)',
+          backgroundSize: '300% 300%',
+          animation: 'gradient 5s ease infinite',
+          $: {
+            '@keyframes gradient': {
+              '0%': {
+                backgroundPosition: '0% 50%',
+              },
+              '50%': {
+                backgroundPosition: '100% 50%',
+              },
+              '100%': {
+                backgroundPosition: '0% 50%',
+              },
+            },
+          },
+        }}>
                 <CssBaseline>
                 <Outlet/>
                 </CssBaseline>

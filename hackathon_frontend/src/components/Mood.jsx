@@ -17,15 +17,13 @@ function Mood() {
   const [selectedIcon, setSelectedIcon] = useState(null);
   const [showIcons, setShowIcons] = useState(true);
   const [backgroundImage, setBackgroundImage] = useState("");
-  const changeBackground = (image) => {
-    setBackgroundImage(image);
-  };
+  
 
   // const handleIconClick = (icon, image) => {
   //   changeBackground(image);
   // }
     const handleIconClick = (icon,image) => {
-      changeBackground(image);
+      
       setSelectedIcon(icon);
       setShowIcons(false);
     };
@@ -57,28 +55,28 @@ function Mood() {
               <ul style={{ alignItems: "center", padding: 0, margin: 0 }}>
                 <IconButton
                   style={styleForPaper}
-                  onClick={() => handleIconClick("Sad", "../assets/1.png")}
+                  onClick={() => handleIconClick("Sad")}
                 >
                   <MoodBadOutlinedIcon />
                   <ListItemText primary="Sad" />
                 </IconButton>
                 <IconButton
                   style={styleForPaper}
-                  onClick={() => handleIconClick("Very Sad", "../assets/2.png")}
+                  onClick={() => handleIconClick("Very Sad")}
                 >
                   <SentimentDissatisfiedOutlinedIcon />
                   <ListItemText primary="Very Sad" />
                 </IconButton>
                 <IconButton
                   style={styleForPaper}
-                  onClick={() => handleIconClick("Neutral", "../assets/3.png")}
+                  onClick={() => handleIconClick("Neutral")}
                 >
                   <SentimentSatisfiedOutlinedIcon />
                   <ListItemText primary="Neutral" />
                 </IconButton>
                 <IconButton
                   style={styleForPaper}
-                  onClick={() => handleIconClick("Happy", "../assets/4.png")}
+                  onClick={() => handleIconClick("Happy")}
                 >
                   <MoodOutlinedIcon />
                   <ListItemText primary="Happy" />
@@ -86,7 +84,7 @@ function Mood() {
                 <IconButton
                   style={styleForPaper}
                   onClick={() =>
-                    handleIconClick("Very Happy", "../assets/5.png")
+                    handleIconClick("Very Happy")
                   }
                 >
                   <SentimentVerySatisfiedOutlinedIcon />

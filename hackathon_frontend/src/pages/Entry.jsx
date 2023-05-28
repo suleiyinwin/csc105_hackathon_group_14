@@ -123,7 +123,7 @@ function Entry() {
       <Box style={{padding: "2% 15% 0 15%"}}>
           <Grid container >
             <Grid item xs={12} >
-              <Box sx={{height:"50px", background:"#1D337D"}}>
+              <Box sx={{ background:"#1D337D"}}>
                 <Typography sx={{textAlign:"center",color:"#C0CFFF",padding:'12px'}}>
                   CHERISH THE MOMENT OF HAPPINESS
                 </Typography></Box>
