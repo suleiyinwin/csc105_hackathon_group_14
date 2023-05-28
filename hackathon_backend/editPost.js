@@ -1,10 +1,9 @@
 module.exports = (req, res) => {
-   const postId=req.body.id;
+   const postId=req.body.postId;
    const title=req.body.title;
    const description=req.body.description;
-   const visibility=req.body.visibility;
-
-    connection.query("UPDATE posts SET title=?,description=?,visibility=? WHERE id = ?", [title,description,visibility,postId], (err, rows) => {
+    console.log(postId, title, description);
+    connection.query("UPDATE posts SET title=?,description=? WHERE id = ?", [title,description,postId], (err, rows) => {
         if(err) {
             return res.json({
                 success: false,

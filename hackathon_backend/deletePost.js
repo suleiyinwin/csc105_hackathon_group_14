@@ -1,5 +1,5 @@
 module.exports = (req, res) => {
-    const postId = req.body.id;
+    const postId = req.params.postId;
 
     connection.query("DELETE FROM posts WHERE id = ?", [postId], (err, rows) => {
         if(err) {
@@ -10,7 +10,7 @@ module.exports = (req, res) => {
             });
         } else {
             if (rows) {
-                res.json({
+                res.send({
                     success: true,
                     data: {
                         message: "Post deleted"

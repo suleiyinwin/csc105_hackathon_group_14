@@ -2,17 +2,29 @@ import { Avatar, Card, CardActionArea, CardActions, CardContent, CardHeader, Ico
 import ModeEditRoundedIcon from '@mui/icons-material/ModeEditRounded';
 import DeleteRoundedIcon from '@mui/icons-material/DeleteRounded';
 import CommentRoundedIcon from '@mui/icons-material/CommentRounded';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import CommentModal from './CommentModal';
 import { useContext } from 'react';
+import Cookies from 'js-cookie';
 import GlobalContext from '../context/globalContext';
+import PostEditModal from './PostEditModal';
+import { useParams } from 'react-router';
+import Axios from './AxiosInstance';
 // import {format } from 'fecha';
 
-function Postcard({ title='', description ='', date=''}) {
+function Postcard({postId, title='', description ='', date='', handleDelete = (id) => {}}) {
     const[expanded, setExpanded] = useState(false);
     const[commentOpen, setCommentOpen] = useState(false);
-    const {user} = useContext(GlobalContext);
-    
+    const {user, setStatus} = useContext(GlobalContext);
+    const [openEdit, setOpenEdit] = useState(false);
+
+  const [post, setPost] = useState({
+    postId: postId,
+    title: title,
+    description: description,
+    date: date
+  });
+
     const handleExpand = () => {
         setExpanded(!expanded);
     }
@@ -20,26 +32,25 @@ function Postcard({ title='', description ='', date=''}) {
         setCommentOpen(!commentOpen);
 
     }
-    // useEffect(() => {
-    //   // TODO: Implement get user
-    //   const userToken = Cookies.get('UserToken');
-    //   // console.log(userToken);
-    //   if (userToken == null || userToken == "undefined") return;
-    //   // 1. check if cookie is set
-    //   // 2. send a request to server
-    //   Axios.get("/me", {
-    //     headers: {
-    //       Authorization: `Bearer ${userToken}`,
-    //     },
-    //   }).then((res) => {
-    //     console.log(res.data.user.username);
-    //     // 3. if success, set user information
-    //     setUser({
-    //       username: res.data.user.username,
-    //       email: res.data.user.email,
-    //     });
-    //   });
-    // }, []);
+    const handlePostEditOpen = () => {
+      setOpenEdit(true);
+    };
+    const handlePostEditClose = () => {
+      setOpenEdit(false);
+    };
+    const handleEdit = () => {
+      // handlePostDetailClose();
+      handlePostEditOpen();
+    };
+    useEffect(()=>{
+      console.log(post);
+    //   const userToken=Cookies.get('UserToken');
+    //   Axios.get(`/post/${post.postId}`, {headers:{Authorization: `Bearer ${userToken}`
+    // }}).then((res)=>{
+    //   setPost(res.data.data); 
+    // });
+    },[]);
+    // Delete Note
     return (
        
               <Box sx={{
@@ -47,10 +58,8 @@ function Postcard({ title='', description ='', date=''}) {
                 justifyContent:'center',
                 
               }}>
-                <br/>
-                <br/>
                 <Card sx={{width:'80%',
-                        fontFamily:'Roboto'}}>
+                        fontFamily:'Roboto',margin:"1% 0"}}>
                   <CardActionArea sx={{bgcolor:'#F5F5F5'}} >
                     <CardHeader
                       avatar={
@@ -64,19 +73,21 @@ function Postcard({ title='', description ='', date=''}) {
                     <CardContent>
                       {/* input title and description with axios */}
                       <Typography variant="h6" component="h1" sx={{fontFamily:'Roboto'}}>
-                        {title}
+                        {post.title}
                       </Typography>
                       {/* will expand on dot icon */}
                       <Typography variant="body1" component="p" sx={{fontFamily:'Roboto'}}>
-                        {description}
+                        {post.description}
                       </Typography>
                     </CardContent>
                   </CardActionArea>
                   <CardActions disableSpacing sx={{ display: 'flex' }}>
-                    <IconButton aria-label="edit note" sx={{color:'#4059AD'}}>
+                    <IconButton onClick={handlePostEditOpen}  aria-label="edit post" sx={{color:'#4059AD'}}>
                       <ModeEditRoundedIcon />
                     </IconButton>
-                    <IconButton aria-label="delete note" sx={{color:'#4059AD'}}>
+                    <PostEditModal setPost={setPost} handleEdit={handleEdit} handleClose={handlePostEditClose} open={openEdit} post={post} />
+
+                    <IconButton onClick={()=>handleDelete(post.postId)} aria-label="delete post" sx={{color:'#4059AD'}}>
                       <DeleteRoundedIcon />
                     </IconButton>
                     <Box sx={{ flexGrow: 1 }}></Box>
@@ -88,8 +99,6 @@ function Postcard({ title='', description ='', date=''}) {
                   </CardActions>
                 </Card>
 
-                <br/>
-                <br/>
               </Box>
       
       );

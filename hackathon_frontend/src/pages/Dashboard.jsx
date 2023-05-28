@@ -8,11 +8,12 @@ import GlobalContext from "../context/globalContext";
 import Cookies from "js-cookie";
 import Axios from "../components/AxiosInstance";
 import { useEffect, useState, useContext } from "react";
+import { AxiosError } from 'axios';
 
 function Dashboard() {
     const [posts, setPosts] = useState([]);
     const [openCreate,setOpenCreate]=useState(false);
-    const {user} = useContext(GlobalContext);
+    const {user, setStatus} = useContext(GlobalContext);
     const handlePostCreateOpen=()=>{
         setOpenCreate(true);
     }
@@ -28,6 +29,34 @@ useEffect(()=>{
         });
     }
 },[user]);
+const handleDelete = async (id) => {
+    try {
+      const userToken = Cookies.get('UserToken');
+      const response = await Axios.delete(`/post/${id}`, {
+        headers: { Authorization: `Bearer ${userToken}` },
+      });
+
+      if (response.data.success) {
+        // TODO: show status of success here
+        console.log(posts)
+        const newPosts = posts.filter((p)=>p.id !== id)
+        console.log(id,
+            newPosts
+        );
+        setPosts(newPosts)
+        setStatus({severity:'success', msg:'Delete post successfully'})
+        // navigate(-1);
+      }
+    } catch (error) {
+      if (error instanceof AxiosError && error.response) {
+        // TODO: show status of error from AxiosError here
+        setStatus({severity:'error', msg:error.response.data.error});
+      } else {
+        // TODO: show status of other errors here
+        setStatus({severity:'error',msg: error.message});
+      }
+    }
+  };
   return (
     <Box>
       <Nav />
@@ -40,9 +69,11 @@ useEffect(()=>{
                 <Grid item xs={12} key={index}>
                 {/* map notecard */}
                 <Postcard 
+                postId={post.id}
                 title={post.title} 
                 description={post.description} 
                 date={post.updatedAt}
+                handleDelete={handleDelete}
                 />
               </Grid>
             ))}

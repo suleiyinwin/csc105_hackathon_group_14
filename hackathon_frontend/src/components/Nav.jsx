@@ -198,7 +198,7 @@ export default function Nav(props){
              color: '#EFF2F1',
              textAlign:'center'
            }}>
-            Username
+            {user !== undefined && user.username}
            </Typography>
            <nav position='static'>
             <Toolbar style={{padding:0,margin:0}}>

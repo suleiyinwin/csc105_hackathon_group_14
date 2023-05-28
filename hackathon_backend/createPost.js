@@ -16,9 +16,11 @@ module.exports=(req,res)=>{
             });
         }
         else{
+            console.log(rows);
             const newPost = {
                 title:title,
                 description:description,
+                id: rows.insertId,
                 // visibility:visibility,
                 userId:decoded.user.id,
             }
