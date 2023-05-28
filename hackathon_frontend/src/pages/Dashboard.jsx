@@ -11,19 +11,18 @@ import { useEffect, useState, useContext } from "react";
 
 function Dashboard() {
   return (
-    <Grid container>
-      <Grid item sm={2.5} display={{ sm: "block", xs: "none" }}>
-        <Nav />
-      </Grid>
-      <Grid item sm={9.5} xs={12} display={{xs:"block"}}>
+    <Box>
+      <Nav />
+      
             <Box sx={{ height: "40%", mb: 2 }}>
           <Mood />
-        </Box>
+        
         {/* map notecard */}
         <Postcard />
-        {/* </Grid> */}
-      </Grid>
-    </Grid>
+    </Box>
+    </Box>
+        
+    
   );
 }
 

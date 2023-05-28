@@ -62,85 +62,85 @@ export default function Nav(props){
     const handleLogout=()=>{
         navigate('/login');
     }
-    const drawer=(
-        <div >
-             <Typography sx={{
-            fontFamily:"Robotos",
-            fontWeight: 300,
-            fontSize: 30,
-            color: '#EFF2F1',
-            marginLeft: '13px'
-        }}
-        variant='h4'>
-            Logo
-        </Typography>
-        <Toolbar/>
-        <div style={{
-            display:'flex',
-            flexDirection:'column',
-            alignItems:'center'
-        }}>
-            <img style={{paddingTop:'15px',
-                        borderRadius:'50%',
-                        margin:0,
-                        width:'180px',
-                        height:'175px'}} src="assets/test.JPG"></img>
-           </div>
-           <Typography sx={{
-             paddingTop: '15px',
-             fontSize: '1.2rem',
-             fontWeight:'300',
-             color: '#EFF2F1',
-             textAlign:'center'
-           }}>
-            {user.username}
-           </Typography>
-           <nav position='static'>
-            <Toolbar style={{padding:0,margin:0}}>
-                <Box sx={{
-                    flexGrow:1,
-                    display:{xs:'none',sm:'block'},
-                    ml:2.5, mt:0.5,
-                }}>
-                <ul style={{margin:0,
-                            padding:0}}>
-                        <li style={{listStyleType:'none'}}>
-                        <Button sx={{alignItems:'center'}} onClick={() => handleClick('dashboard')}>
-                        <DashboardIcon sx={{display: "flex", color: '#EFF2F1'}}/>
-                        <Typography variant='h7'
-                        component='div'
-                            sx={textstyle}>
-                            Dashboard
-                         </Typography>
-                        </Button>
-                        </li>
-                        <li style={{listStyleType:'none'}}>
-                        <Button sx={{alignItems:'center'}} onClick={() => handleClick('newsfeed')}>
-                        <FeedIcon sx={{display: "flex", color: '#EFF2F1'}}/>
-                        <Typography variant='h7'
-                        component='div'
-                            sx={textstyle}>
-                            Newsfeed
-                         </Typography>
-                        </Button>
-                        </li>
-                        <li style={{listStyleType:'none'}}>
-                        <Button sx={{alignItems:'center'}} onClick={() => handleClick('login')}>
-                        <LogoutIcon sx={{display: "flex", color: '#EFF2F1'}}/>
-                        <Typography variant='h7'
-                        component='div'
-                            sx={textstyle}>
-                            Logout
-                         </Typography>
-                        </Button>
-                        </li>
-                </ul>
+    // const drawer=(
+    //     <div >
+    //          <Typography sx={{
+    //         fontFamily:"Robotos",
+    //         fontWeight: 300,
+    //         fontSize: 30,
+    //         color: '#EFF2F1',
+    //         marginLeft: '13px'
+    //     }}
+    //     variant='h4'>
+    //         Logo
+    //     </Typography>
+    //     <Toolbar/>
+    //     <div style={{
+    //         display:'flex',
+    //         flexDirection:'column',
+    //         alignItems:'center'
+    //     }}>
+    //         <img style={{paddingTop:'15px',
+    //                     borderRadius:'50%',
+    //                     margin:0,
+    //                     width:'180px',
+    //                     height:'175px'}} src="assets/test.JPG"></img>
+    //        </div>
+    //        <Typography sx={{
+    //          paddingTop: '15px',
+    //          fontSize: '1.2rem',
+    //          fontWeight:'300',
+    //          color: '#EFF2F1',
+    //          textAlign:'center'
+    //        }}>
+    //         {user.username}
+    //        </Typography>
+    //        <nav position='static'>
+    //         <Toolbar style={{padding:0,margin:0}}>
+    //             <Box sx={{
+    //                 flexGrow:1,
+    //                 display:{xs:'none',sm:'block'},
+    //                 ml:2.5, mt:0.5,
+    //             }}>
+    //             <ul style={{margin:0,
+    //                         padding:0}}>
+    //                     <li style={{listStyleType:'none'}}>
+    //                     <Button sx={{alignItems:'center'}} onClick={() => handleClick('dashboard')}>
+    //                     <DashboardIcon sx={{display: "flex", color: '#EFF2F1'}}/>
+    //                     <Typography variant='h7'
+    //                     component='div'
+    //                         sx={textstyle}>
+    //                         Dashboard
+    //                      </Typography>
+    //                     </Button>
+    //                     </li>
+    //                     <li style={{listStyleType:'none'}}>
+    //                     <Button sx={{alignItems:'center'}} onClick={() => handleClick('newsfeed')}>
+    //                     <FeedIcon sx={{display: "flex", color: '#EFF2F1'}}/>
+    //                     <Typography variant='h7'
+    //                     component='div'
+    //                         sx={textstyle}>
+    //                         Newsfeed
+    //                      </Typography>
+    //                     </Button>
+    //                     </li>
+    //                     <li style={{listStyleType:'none'}}>
+    //                     <Button sx={{alignItems:'center'}} onClick={() => handleClick('login')}>
+    //                     <LogoutIcon sx={{display: "flex", color: '#EFF2F1'}}/>
+    //                     <Typography variant='h7'
+    //                     component='div'
+    //                         sx={textstyle}>
+    //                         Logout
+    //                      </Typography>
+    //                     </Button>
+    //                     </li>
+    //             </ul>
                 
-                </Box>
-            </Toolbar>
-           </nav>
-        </div>
-    );
+    //             </Box>
+    //         </Toolbar>
+    //        </nav>
+    //     </div>
+    // );
     const container = window !== undefined ? () => window().document.body : undefined;
     return(
     <Box sx={{ display: 'flex' }}>
@@ -151,7 +151,7 @@ export default function Nav(props){
             aria-label="open drawer"
             edge="start"
             onClick={handleDrawerToggle}
-            sx={{ mr: 2, display: { sm: 'none' } }}
+            sx={{ mr: 2 }}
           >
             <MenuIcon />
           </IconButton>
@@ -166,7 +166,7 @@ export default function Nav(props){
           
           sx={{
             width: drawerWidth,
-            display: { sm:'none' },
+           
           }}
         >
           <div style={{
@@ -243,7 +243,7 @@ export default function Nav(props){
         </div>
         </Drawer>
        
-        <Box sx={{display:'flex'}}>
+        {/* <Box sx={{display:'flex'}}>
             <Drawer
             sx={{
                 flexGrow:1,
@@ -262,7 +262,7 @@ export default function Nav(props){
             >
                 {drawer}
             </Drawer>
-        </Box>
+        </Box> */}
         </Box>
         </Box>
     );
