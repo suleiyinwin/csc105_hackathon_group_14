@@ -91,11 +91,11 @@ function Postcard({postId, title='', description ='', date='', handleDelete = (i
                       <DeleteRoundedIcon />
                     </IconButton>
                     <Box sx={{ flexGrow: 1 }}></Box>
-                    <Button variant="outlined" startIcon={<CommentRoundedIcon />} onClick={commentToggle} sx={{fontFamily:'Roboto',
+                    {/* <Button variant="outlined" startIcon={<CommentRoundedIcon />} onClick={commentToggle} sx={{fontFamily:'Roboto',
                         color:'#4059AD'}}>
                       Comment
                     </Button>
-                    <CommentModal open={commentOpen} onClose={commentToggle} />
+                    <CommentModal open={commentOpen} onClose={commentToggle} /> */}
                   </CardActions>
                 </Card>
 

@@ -60,7 +60,8 @@ export default function Nav(props){
         navigate(`/${tab}`);
     }
     const handleLogout=()=>{
-        navigate('/login');
+        Cookies.remove('UserToken');
+        navigate('/');
     }
     // const drawer=(
     //     <div >
@@ -206,7 +207,7 @@ export default function Nav(props){
                 <ul style={{margin:0,
                             padding:0}}>
                         <li style={{listStyleType:'none'}}>
-                        <Button sx={{alignItems:'center'}} onClick={() => handleClick('newsfeed')}>
+                        <Button sx={{alignItems:'center'}} onClick={() => handleClick('dashboard')}>
                         <DashboardIcon sx={{display: "flex", color: '#EFF2F1'}}/>
                         <Typography variant='h7'
                         component='div'
@@ -226,7 +227,7 @@ export default function Nav(props){
                         </Button>
                         </li>
                         <li style={{listStyleType:'none'}}>
-                        <Button sx={{alignItems:'center'}} onClick={() => handleClick('newsfeed')}>
+                        <Button sx={{alignItems:'center'}} onClick={handleLogout}>
                         <LogoutIcon sx={{display: "flex", color: '#EFF2F1'}}/>
                         <Typography variant='h7'
                         component='div'

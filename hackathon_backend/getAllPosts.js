@@ -1,5 +1,5 @@
 module.exports = (req, res) => {
-    connection.query("SELECT * FROM posts WHERE visibility =1", ( err, rows) => {
+    connection.query("SELECT * FROM posts", ( err, rows) => {
         if (err) {
             return res.json({
                 success: false,
