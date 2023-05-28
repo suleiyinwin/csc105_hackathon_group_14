@@ -1,14 +1,19 @@
 import { Button, Dialog, DialogActions, DialogContent, DialogTitle, TextField } from '@mui/material'
-import React from 'react'
+import { AxiosError } from 'axios';
+import Cookies from 'js-cookie';
+import React, { useContext, useState } from 'react'
+import GlobalContext from '../context/globalContext';
+import Axios from './AxiosInstance';
+// import { AxiosError } from 'axios';
 
-function PostCreateModal() {
+function PostCreateModal({open=false,post=()=>{},handleClose=()=>{},setPosts=() => {}}) {
     //input
     const [newPost, setNewPost] = useState({
         title: '',
         description: '',
       });
       const [error, setError] = useState({});
-    //   const { setStatus } = useContext(GlobalContext);
+      const { setStatus } = useContext(GlobalContext);
     
     const validateForm=()=>{
         const error={};
@@ -17,8 +22,25 @@ function PostCreateModal() {
         if(Object.keys(error).length) return false;
         return true;
       }
-      const submit =()=>  {
+      const submit = async () =>  {
         if(!validateForm()) return;
+        try{
+          const userToken = Cookies.get('UserToken');
+          const response = await Axios.post('/post', newPost, {
+            headers: { Authorization: `Bearer ${userToken}`},
+          })
+          if(response.data.success){
+            setPosts((prev) => [...prev, response.data.data]);
+            resetAndClose();
+          }
+        } catch (error) {
+          if(error instanceof AxiosError && error.response) {
+            setStatus({severity:'error', msg:error.response.data.error});
+      } else {
+        // TODO: show status of other errors here
+        setStatus({severity:'error',msg: error.message});
+      }
+        }
         // setPosts([...post,newPost]);
         // setNewPost(" ");
         // setError(true);
@@ -33,7 +55,7 @@ function PostCreateModal() {
           });
           setError({});
         }, 500);
-        // handleClose();
+        handleClose();
       };
       const handleChange = (e) => {
         setNewPost({

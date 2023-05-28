@@ -6,8 +6,8 @@ module.exports=(req,res)=>{
 	var decoded = jwt.verify(token, "ZJGX1QL7ri6BGJWj3t");
     const title=req.body.title;
     const description=req.body.description;
-    const visibility=req.body.visibility;
-    connection.query("Insert into posts (userId,title,description,visibility) values (?,?,?,?)",[decoded.user.id,title,description,visibility],(err,rows)=>{
+    // const visibility=req.body.visibility;
+    connection.query("Insert into posts (userId,title,description) values (?,?,?)",[decoded.user.id,title,description],(err,rows)=>{
         if(err) {
             return res.json({
                 success: false,
@@ -19,7 +19,7 @@ module.exports=(req,res)=>{
             const newPost = {
                 title:title,
                 description:description,
-                visibility:visibility,
+                // visibility:visibility,
                 userId:decoded.user.id,
             }
                 res.json({
