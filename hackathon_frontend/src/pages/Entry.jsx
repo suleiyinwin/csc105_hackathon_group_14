@@ -120,7 +120,7 @@ function Entry() {
           <Login handleOpen={handleOpen} open={openLoginModal} setOpen={setOpenLoginModal}/>
         </Box>  
     </Stack>
-      <Box style={{background:"#4059ad",padding: "2% 15% 0 15%"}}>
+      <Box style={{padding: "2% 15% 0 15%"}}>
           <Grid container >
             <Grid item xs={12} >
               <Box sx={{height:"50px", background:"#1D337D"}}>
@@ -131,6 +131,25 @@ function Entry() {
                 <img src='../assets/entry.png' style={{width:"50%",margin:"5% 0 5% 25%"}}/>
             </Grid>
           </Grid>
+      </Box>
+      <Box style={{background:"#1A2F77", padding:"2% 15%"}}>
+      <Grid container>
+          <Grid item sx={{ display: { xs: "none", md: "block" } }} md={5}>
+            <img
+              style={{ padding: "0 0 0 15%",width:"60%" }}
+              src="../assets/write2.png"
+            />
+          </Grid>
+          <Grid item md={7} sm={12} xs={12}>
+            <br/>
+            <Typography variant="h3" style={{color:'#ffffff'}}>What today?</Typography>
+            <br />
+            <Typography variant="h6" style={{color:'#ffffff'}}>
+              I stay up through the night; because that is when the moon and I have our conversations.<br/>
+              I tell her about how I drown in the sparkle of your brown eyes and she tells me about how the makes__ even the darkest parts of__ her shine.
+            </Typography>
+          </Grid>
+        </Grid>
       </Box>
     </Box>
   )

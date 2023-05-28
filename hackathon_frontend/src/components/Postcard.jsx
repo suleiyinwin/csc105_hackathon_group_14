@@ -6,7 +6,7 @@ import React, { useState } from 'react';
 import CommentModal from './CommentModal';
 import { useContext } from 'react';
 import GlobalContext from '../context/globalContext';
-import {format } from 'fecha';
+// import {format } from 'fecha';
 
 function Postcard({ title='', description ='', date=''}) {
     const[expanded, setExpanded] = useState(false);
@@ -47,7 +47,7 @@ function Postcard({ title='', description ='', date=''}) {
                 justifyContent:'center',
                 
               }}>
-                <Card sx={{width:'80%', height: '40%',
+                <Card sx={{width:'80%',
                         fontFamily:'Roboto'}}>
                   <CardActionArea sx={{bgcolor:'#F5F5F5'}} >
                     <CardHeader
@@ -57,7 +57,7 @@ function Postcard({ title='', description ='', date=''}) {
                         </Avatar>
                       }
                       title={user.username}
-                      // subheader={format((date), 'DD/MM/YYYY hh:mm A')}
+                      // subheader={format(new Date(date), 'DD/MM/YYYY hh:mm A')}
                     />
                     <CardContent>
                       {/* input title and description with axios */}
