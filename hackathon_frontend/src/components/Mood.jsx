@@ -60,20 +60,20 @@ function Mood() {
                   <MoodBadOutlinedIcon />
                   <ListItemText primary="Sad" />
                 </IconButton>
-                <IconButton
+                {/* <IconButton
                   style={styleForPaper}
                   onClick={() => handleIconClick("Very Sad")}
                 >
                   <SentimentDissatisfiedOutlinedIcon />
                   <ListItemText primary="Very Sad" />
-                </IconButton>
-                <IconButton
+                </IconButton> */}
+                {/* <IconButton
                   style={styleForPaper}
                   onClick={() => handleIconClick("Neutral")}
                 >
                   <SentimentSatisfiedOutlinedIcon />
                   <ListItemText primary="Neutral" />
-                </IconButton>
+                </IconButton> */}
                 <IconButton
                   style={styleForPaper}
                   onClick={() => handleIconClick("Happy")}
@@ -104,7 +104,7 @@ function Mood() {
             variant="h4"
             sx={{ fontFamily: "Roboto", fontSize: "1.5rem", color: "black" }}
           >
-            Some other words
+            Cherish the moment of happiness!!!
           </Typography>
             </Box>
           
