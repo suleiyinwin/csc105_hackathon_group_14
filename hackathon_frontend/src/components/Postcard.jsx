@@ -47,6 +47,8 @@ function Postcard({ title='', description ='', date=''}) {
                 justifyContent:'center',
                 
               }}>
+                <br/>
+                <br/>
                 <Card sx={{width:'80%',
                         fontFamily:'Roboto'}}>
                   <CardActionArea sx={{bgcolor:'#F5F5F5'}} >
@@ -85,6 +87,9 @@ function Postcard({ title='', description ='', date=''}) {
                     <CommentModal open={commentOpen} onClose={commentToggle} />
                   </CardActions>
                 </Card>
+
+                <br/>
+                <br/>
               </Box>
       
       );
